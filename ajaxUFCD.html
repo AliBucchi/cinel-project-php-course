@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pesquisar(p) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("resultadoUFCD").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "ajaxUFCD.php?pesquisa=" + p, true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <input id="pesquisa" onkeyup="pesquisar(pesquisa.value)">
+    </form>
+    <p id="resultadoUFCD"></p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/EZOCCGC6yIo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</body>
+
+</html>
